@@ -1,0 +1,62 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="12">
+
+	<ItemGroup>
+		<Compile Include="Form1.cs" />
+		<Compile Include="Form1.Designer.cs" />
+		<Compile Include="Program.cs" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Properties\Resources.Designer.cs" />
+		<Compile Include="Properties\Settings.Designer.cs" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<EmbeddedResource Include="Properties\Resources.resx" />
+	</ItemGroup>
+	  
+	<!-- add reference assembly here, otherwise you will get error -->
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Deployment" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.Windows.Forms" />
+		<Reference Include="System.Xml" />
+  </ItemGroup>
+  
+	<PropertyGroup>
+		<AssemblyName>vsapp</AssemblyName>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+	
+	<!-- define Configuration property -->
+	<PropertyGroup>
+		<Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>	
+	</PropertyGroup>
+	
+	<!-- define Debug mode -->
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<OutputPath>bin\Debug\</OutputPath>
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	
+	<!-- define Release mode -->
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<OutputPath>bin\Release\</OutputPath>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+	
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+	
+	<!-- BeforeBuild target -->
+	<Target Name="BeforeBuild">
+		<Message Text="build MSbuild project file from scratch" />
+		<Message Text="the property Configuration is: $(Configuration)" />
+		<Message Text="final output directory: $(OutputPath)" />
+		<Message Text="MSBuild installation path: $(MSBuildBinPath) " />
+	</Target>
+		<!-- AfterBuild target -->
+	<Target Name="AfterBuild">
+		<Message Text="AfterBuild step" />
+	</Target>
+	
+</Project>
