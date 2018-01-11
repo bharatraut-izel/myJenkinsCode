@@ -37,12 +37,24 @@ pipeline {
                 "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
                 '''
             }
+            post {
+                success {
+                // publish html
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'coverage',
+                    reportFiles: 'index.html',
+                    reportName: 'RCov Report'
+                    ]
+                }
+            }
         }
     }
     post { 
         always { 
             echo 'I will always say Hello again!'
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/root/', reportFiles: 'bhar_index.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
 }
