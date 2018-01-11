@@ -3,7 +3,6 @@
 pipeline {
     agent none
     stages {
-        parallel {
         stage('Checkout on Linux') {
             steps {
                 echo 'Checkout for linux.'
@@ -33,7 +32,6 @@ pipeline {
                 "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
                 '''
             }
-        }
         }
     }
 }
