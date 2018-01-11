@@ -37,19 +37,6 @@ pipeline {
                 "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
                 '''
             }
-            post {
-                success {
-                // publish html
-                publishHTML target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'coverage',
-                    reportFiles: 'index.html',
-                    reportName: 'RCov Report'
-                    ]
-                }
-            }
         }
     }
     post { 
