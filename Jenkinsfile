@@ -33,6 +33,7 @@ pipeline {
                 print "Git repository is https://github.com/bharatraut-izel/myJenkinsCode.git"
                 bat '''
                 cd C:\\Users\\Administrator\\Desktop
+                if exist myJenkinsCode rmdir myJenkinsCode /S /Q
                 "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
                 '''
             }
