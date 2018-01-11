@@ -42,6 +42,7 @@ pipeline {
     post { 
         always { 
             echo 'I will always say Hello again!'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/root/', reportFiles: 'bhar_index.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
 }
