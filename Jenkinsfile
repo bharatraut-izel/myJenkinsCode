@@ -19,8 +19,10 @@ pipeline {
             }
             steps {
                 echo 'Build on linux'
+                sh '''
                 cd /root/xtractcloud/linux/driver
                 make
+                '''
             }
         }
         stage('Build on Windows') {
