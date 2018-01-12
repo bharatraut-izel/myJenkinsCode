@@ -48,7 +48,7 @@ pipeline {
     }
     post { 
         always { 
-            echo 'I will say Hello for POST actions.'
+            echo 'I will say Hello for POST action.'
         }
     }
 }
