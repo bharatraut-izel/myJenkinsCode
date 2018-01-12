@@ -53,7 +53,7 @@ pipeline {
             }
             post { 
                 always {
-                    junit 'C:\Users\Administrator\Desktop\myJenkinsCode\SimpleMath\unittest_SimpleMath\Debug\testAll.xml'
+                    junit 'C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\*.xml'
                 }
             }
         }
