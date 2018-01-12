@@ -54,7 +54,10 @@ pipeline {
         }
     }
     post { 
-        always { 
+        always {
+            agent {
+                label 'windows'
+            }
             junit "C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml"
         }
     }
