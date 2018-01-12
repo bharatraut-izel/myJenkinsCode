@@ -60,6 +60,7 @@ pipeline {
     post { 
         always {
             echo 'Hello all'
+            }
         }
     }
 }
