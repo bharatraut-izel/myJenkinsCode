@@ -51,14 +51,15 @@ pipeline {
                 unittest_SimpleMath.exe --gtest_output="xml:./testAll.xml"
                 '''
             }
+            post { 
+                always {
+                    junit "C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml"
+                }
         }
     }
     post { 
         always {
-            agent {
-                label 'windows'
-            }
-            junit "C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml"
+            echo 'Hello all'
         }
     }
 }
