@@ -11,6 +11,7 @@ pipeline {
                 echo 'Checkout for linux.'
                 sh '''
                 cd /root/bharat
+                rm -rf xtractcloud
                 /usr/bin/git clone git@github.com:nutanixgso/xtractcloud.git
                 '''
             }
@@ -46,13 +47,15 @@ pipeline {
                 cd C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath
                 call set.bat
                 msbuild unittest_SimpleMath.vcxproj
+                cd Debug
+                unittest_SimpleMath.exe --gtest_output="xml:./testAll.xml"
                 '''
             }
         }
     }
     post { 
         always { 
-            echo 'I will say Hello for POST action.'
+            junit "C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml"
         }
     }
 }
