@@ -53,7 +53,7 @@ pipeline {
             }
             post { 
                 always {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'D:\\\\', reportFiles: 'abcd.html', reportName: 'HTML Report', reportTitles: ''])
+                    junit 'D:\\testAll.xml'
                 }
             }
         }
