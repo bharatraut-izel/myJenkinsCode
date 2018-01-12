@@ -48,7 +48,7 @@ pipeline {
                 call set.bat
                 msbuild unittest_SimpleMath.vcxproj
                 cd Debug
-                unittest_SimpleMath.exe --gtest_output="junit_xml:./testAll.xml"
+                unittest_SimpleMath.exe --gtest_output="xml:testAll.xml"
                 '''
             }
             post { 
