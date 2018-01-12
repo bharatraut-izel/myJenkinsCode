@@ -11,7 +11,7 @@ pipeline {
                 echo 'Checkout for linux.'
                 sh '''
                 cd /root/bharat
-                /usr/bin/git clone https://github.com/nutanixgso/xtractcloud.git
+                /usr/bin/git clone git@github.com:nutanixgso/xtractcloud.git
                 '''
             }
         }
