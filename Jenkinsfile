@@ -55,12 +55,7 @@ pipeline {
                 always {
                     junit "C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml"
                 }
-        }
-    }
-    post { 
-        always {
-            echo 'Hello all'
             }
         }
-    }
+   }
 }
