@@ -6,8 +6,10 @@ pipeline {
         stage('Checkout on Linux') {
             steps {
                 echo 'Checkout for linux.'
+                sh '''
                 cd /root/bharat
                 /usr/bin/git clone https://github.com/nutanixgso/xtractcloud.git
+                '''
             }
         }
         stage('Checkout on Windows') {
