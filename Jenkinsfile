@@ -43,9 +43,9 @@ pipeline {
                 if exist myJenkinsCode rmdir myJenkinsCode /S /Q
                 "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
                 call "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat"
-                cd C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\TestApplication
+                cd C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath
                 call set.bat
-                msbuild TestApplication.sln
+                msbuild unittest_SimpleMath.vcxproj
                 '''
             }
         }
