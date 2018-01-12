@@ -4,6 +4,9 @@ pipeline {
     agent none
     stages {
         stage('Checkout on Linux') {
+            agent { 
+                label 'linux'
+            }
             steps {
                 echo 'Checkout for linux.'
                 sh '''
