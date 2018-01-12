@@ -48,12 +48,12 @@ pipeline {
                 call set.bat
                 msbuild unittest_SimpleMath.vcxproj
                 cd Debug
-                unittest_SimpleMath.exe --gtest_output="xml:./testAll.xml"
+                unittest_SimpleMath.exe --gtest_output="junit_xml:./testAll.xml"
                 '''
             }
             post { 
                 always {
-                    junit 'D:\\testAll.xml'
+                    junit 'C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath\\Debug\\testAll.xml'
                 }
             }
         }
