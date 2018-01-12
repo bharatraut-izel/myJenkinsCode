@@ -53,7 +53,7 @@ pipeline {
             }
             post { 
                 always {
-                    junit 'D:\\testMath.xml'
+                    junit 'D:\\testAll.xml'
                 }
             }
         }
