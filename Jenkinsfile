@@ -53,7 +53,7 @@ pipeline {
             }
             post { 
                 always {
-                    junit 'D:\\testAll.xml'
+                    echo 'I am in post section.'
                 }
             }
         }
