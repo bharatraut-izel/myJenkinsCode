@@ -38,8 +38,7 @@ pipeline {
                 label 'windows'
             }
             steps {
-                print "Git repository is https://github.com/bharatraut-izel/myJenkinsCode.git"
-                
+                echo 'Build on windows'                
             }
             post { 
                 always {
