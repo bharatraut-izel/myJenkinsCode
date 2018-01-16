@@ -9,11 +9,6 @@ pipeline {
             }
             steps {
                 echo 'Checkout for linux.'
-                sh '''
-                cd /root/bharat
-                rm -rf xtractcloud
-                /usr/bin/git clone git@github.com:nutanixgso/xtractcloud.git
-                '''
             }
         }
         stage('Checkout on Windows') {
@@ -27,10 +22,6 @@ pipeline {
             }
             steps {
                 echo 'Build on linux'
-                sh '''
-                cd /root/bharat/xtractcloud/linux/driver
-                make
-                '''
             }
         }
         stage('Build on Windows') {
