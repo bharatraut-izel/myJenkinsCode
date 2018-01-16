@@ -39,17 +39,7 @@ pipeline {
             }
             steps {
                 print "Git repository is https://github.com/bharatraut-izel/myJenkinsCode.git"
-                bat '''
-                cd C:\\Users\\Administrator\\Desktop
-                if exist myJenkinsCode rmdir myJenkinsCode /S /Q
-                "C:\\Program Files\\Git\\bin\\git" clone https://github.com/bharatraut-izel/myJenkinsCode.git
-                call "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat"
-                cd C:\\Users\\Administrator\\Desktop\\myJenkinsCode\\SimpleMath\\unittest_SimpleMath
-                call set.bat
-                msbuild unittest_SimpleMath.vcxproj
-                cd Debug
-                unittest_SimpleMath.exe --gtest_output="xml:testAll.xml"
-                '''
+                
             }
             post { 
                 always {
