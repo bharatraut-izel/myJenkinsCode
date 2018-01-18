@@ -3,6 +3,7 @@
 pipeline {
     agent none
     stages {
+     parallel {
         stage('Checkout on Linux') {
             agent { 
                 label 'linux'
@@ -37,5 +38,6 @@ pipeline {
                 }
             }
         }
+      }
    }
 }
