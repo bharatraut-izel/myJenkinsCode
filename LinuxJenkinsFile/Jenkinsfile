@@ -7,8 +7,9 @@ pipeline {
     stages {
         stage('Generate Build') {
               steps {
-                        echo '$WORKSPACE'
-                        echo '${env.BUILD_NUMBER}'
+                        def workspace = env.WORKSPACE
+                        // PRINT ENVIRONMENT TO JOB
+                        echo "workspace directory is ${workspace}"
                         echo 'Generate Build Here'
                     }
                 }
