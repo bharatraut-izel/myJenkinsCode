@@ -8,7 +8,10 @@ pipeline {
         stage('Generate Build') {
               steps {
                         sh '''
-                        touch abcde.sbcde
+                        git clone git@github.com:nutanixgso/xtractcloud.git
+                        cd xtractcloud/linux/driver
+                        make    
+                        make install
                         '''
                         echo 'Generate Build Here'
                     }
