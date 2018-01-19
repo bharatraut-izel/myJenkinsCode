@@ -8,7 +8,6 @@ pipeline {
         stage('Generate Build') {
               steps {
                         echo '${WORKSPACE}'
-                        touch 'abcdeg.abcd'
                         echo 'Generate Build Here'
                     }
                 }
