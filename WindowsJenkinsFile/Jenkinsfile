@@ -3,35 +3,18 @@
 pipeline {
     agent none
     stages {
-        stage('Run Tests') {
-            parallel {
-                stage('Test On Windows') {
-                    agent {
+         stage('Test On Windows') {
+              agent {
                         label "windows"
                     }
-                    steps {
-                        print "run-tests.bat"
+              steps {
+                        echo 'Run tests for windows'
                     }
-                    post {
+               post {
                         always {
-                            echo 'In post of Windows'
-                        }
-                    }
-                }
-                stage('Test On Linux') {
-                    agent {
-                        label "linux"
-                    }
-                    steps {
-                        echo 'run-tests.sh'
-                    }
-                    post {
-                        always {
-                            echo 'In post of linux'
+                            echo 'In post of windows'
                         }
                     }
                 }
             }
-        }
-    }
 }
