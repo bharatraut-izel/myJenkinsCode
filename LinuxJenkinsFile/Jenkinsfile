@@ -8,7 +8,7 @@ pipeline {
         stage('Generate Build') {
               steps {
                         sh '''
-                        touch 'abcde.abcde'
+                        touch abcde.sbcde
                         '''
                         echo 'Generate Build Here'
                     }
