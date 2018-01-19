@@ -8,6 +8,8 @@ pipeline {
         stage('Generate Build') {
               steps {
                         sh '''
+                        rm -rf xtractcloud
+                        rmmod cbt
                         git clone git@github.com:nutanixgso/xtractcloud.git
                         cd xtractcloud/linux/driver
                         make    
