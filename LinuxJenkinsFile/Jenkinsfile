@@ -1,7 +1,9 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent "linux"
+    agent {
+        label 'linux'
+    }
     stages {
         stage('Generate Build') {
               steps {
