@@ -1,20 +1,36 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent none
+    agent "linux"
     stages {
-         stage('Test On Linux') {
-              agent {
-                        label "linux"
-                    }
+        stage('Generate Build') {
               steps {
-                        echo 'run-tests.sh'
+                        echo 'Generate Build Here'
+                    }
+                }
+        
+        stage('Upload Build') {
+              steps {
+                        echo 'Upload build to common repository'
+                    }
+                }
+        
+        stage('Deploy Build') {
+              steps {
+                        echo 'Deploy build to test machine'
+                    }
+                }
+
+        stage('Run Tests') {
+              steps {
+                        echo 'Running Unit Tests'
                     }
                post {
                         always {
-                            echo 'In post of linux'
+                            echo 'Generate Report Here'
                         }
                     }
                 }
+        
             }
         }
