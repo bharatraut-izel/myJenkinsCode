@@ -3,15 +3,14 @@
 pipeline {
     agent none
     stages {
-        stage('Run Tests') {
-                stage('Test On Linux') {
-                    agent {
+         stage('Test On Linux') {
+              agent {
                         label "linux"
                     }
-                    steps {
+              steps {
                         echo 'run-tests.sh'
                     }
-                    post {
+               post {
                         always {
                             echo 'In post of linux'
                         }
@@ -19,4 +18,3 @@ pipeline {
                 }
             }
         }
-    }
