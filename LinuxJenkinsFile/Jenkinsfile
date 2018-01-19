@@ -9,7 +9,7 @@ pipeline {
               steps {
                         def workspace = env.WORKSPACE
                         // PRINT ENVIRONMENT TO JOB
-                        echo "workspace directory is ${workspace}"
+                        echo 'workspace directory is ${WORKSPACE}'
                         echo 'Generate Build Here'
                     }
                 }
