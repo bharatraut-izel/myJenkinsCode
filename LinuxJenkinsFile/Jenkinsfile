@@ -8,6 +8,7 @@ pipeline {
         stage('Generate Build') {
               steps {
                         echo 'workspace directory is ${WORKSPACE}'
+                        echo 'Build number is $BUILD_NUMBER'
                         echo 'Generate Build Here'
                     }
                 }
