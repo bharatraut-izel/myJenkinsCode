@@ -1,0 +1,116 @@
+Xtract for Cloud
+================
+
+## Setting up the commit template
+
+    git config commit.template commit-template.txt
+
+# Linux CBT Driver and cbtctl utility
+
+## Prerequisite
+
+On RHEL 7.3/7.4:
+
+    sudo yum update -y
+    sudo yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r) -y
+
+## Compile and install
+
+Fork the repository from https://github.com/nutanixgso/xtractcloud
+
+    git clone git@github.com:<gh-username>/xtractcloud.git
+    cd xtractcloud/linux/driver
+    make
+    make install
+
+Once, "make" run it create nxcbt.ko and cbtctl in current directory. 
+
+## Uninstall
+
+    make uninstall
+
+# Windows CBT Driver
+
+## Prerequisite
+
+EWDK with Visual Studio Build Tools 15.4 :
+
+Install EWDK from location https://developer.microsoft.com/en-us/windows/hardware/license-terms-enterprise-wdk-1709-VS15-4
+
+## Compile
+
+Fork the repository from https://github.com/nutanixgso/xtractcloud
+
+    git clone git@github.com:<gh-username>/xtractcloud.git
+    
+Run the `LaunchBuildEnv` script as Administrator   
+It will open the Command Prompt
+Do the following operations
+
+    cd xtractcloud\windows\driver
+    msbuild nxcbt.vcxproj /p:Configuration=Release /p:Platform=x64
+
+    cd xtractcloud\windows\driver\x64\Release\NxCBT\
+    This is release path where you will following files as,
+    NxCBT.inf
+    NxCBT.sys
+    NxCBT.cat
+    NxCBT.pdb
+
+    cd xtractcloud\windows\utils\
+    It contains nxcbt cleanup utility as,
+    NxCBT_cleanup2.bat
+	
+## Install
+
+Test System should have `TESTSIGNING` enabled.
+
+Use following command to enable `TESTSIGNING`
+	
+    bcdedit /set TESTSIGNING ON
+	
+Reboot the system.
+
+Install using `nxcbt.inf` from `xtractcloud\windows\NxCBT\x64\Release\NxCBT`
+
+## Uninstall
+
+Uninstall is not supported right now.
+
+
+# Windows CbtCtl utility
+
+## Prerequisite
+
+EWDK with Visual Studio Build Tools 15.4 :
+
+Install EWDK from location https://developer.microsoft.com/en-us/windows/hardware/license-terms-enterprise-wdk-1709-VS15-4
+
+## Compile
+
+Fork the repository from https://github.com/nutanixgso/xtractcloud
+
+    git clone git@github.com:<gh-username>/xtractcloud.git
+    
+Run the `LaunchBuildEnv` script as Administrator   
+It will open the Command Prompt
+Do the following operations
+
+    cd xtractcloud\windows\utils
+    msbuild CbtCtl.vcxproj /p:Configuration=Release /p:Platform=x64
+
+    cd  xtractcloud\windows\utils\x64\Release
+    now CbtCtl.exe will get generated in above release path.
+
+# CBT verify utility
+
+## Compile and install
+Fork the repository from https://github.com/nutanixgso/xtractcloud
+
+    git clone git@github.com:<gh-username>/xtractcloud.git
+    cd xtractcloud/common/utils/cbtverify
+    make
+
+Binary will get generated in the path  "xtractcloud/common/utils/cbtverify/"
+Copy the binary to "/usr/bin/" location on xtract VM.
+Copy the "xtractcloud/common/utils/cbtverify/CbtVerifyLaunch.sh" script to "/usr/bin/" location and use it.
